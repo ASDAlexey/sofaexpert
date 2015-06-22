@@ -1,0 +1,13 @@
+div.wrapper-dragger
+    .dragger-container#dragger-container(dragger)
+        .dragger-price
+    div.serifs
+        span 10 {{itemPrice}}
+        span.infinity
+    div.duration
+        span.pe-7s-stopwatch
+        span(ng-if="currentPositionPrice.end!=currentPositionPrice.x")
+            span {{currentPositionPrice.current.price|round2}}
+        span(ng-if="currentPositionPrice.end==currentPositionPrice.x")
+            span.infinity
+        span {{itemPrice}}

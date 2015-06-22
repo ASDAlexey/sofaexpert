@@ -1,0 +1,45 @@
+html, body
+  overflow hidden
+html.ua-android, .ua-android body
+  overflow-y auto
+  overflow-x hidden
+html, body, .wrapper
+  height:100%
+html.ua-android, .ua-android body, .ua-android .wrapper
+  @media only screen and (orientation:landscape)
+    min-height 100%
+html.ua-mobile-android, .ua-mobile-android body, .ua-mobile-android .wrapper
+  @media only screen and (orientation:landscape)
+    min-height 100%
+body
+  background-color:#f8f4e4
+  background-image:url(../images/bg/bg.jpg)
+  background-repeat:no-repeat
+  background-position:center center
+  background-size cover
+  > .wrapper
+    margin:0 auto
+    width:1000px
+    position:relative
+    z-index:0
+    .main
+      width:687px
+      position:absolute
+      z-index:1
+      right:0
+      top:50%
+      tt(0, -50%)
+      min-height:670px
+      .ua-android &
+        @media only screen and (orientation:landscape)
+          top:35px
+          tt(0, 0)
+.page .main
+  height:calc(100% - 120px)
+.container
+  width:1000px
+  padding:0 10px
+  margin:0 auto
+@media screen and (max-width:1100px)
+  html, body
+    width:100%

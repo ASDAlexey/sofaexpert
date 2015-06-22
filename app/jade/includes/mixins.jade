@@ -1,0 +1,46 @@
+mixin aside(page)
+    if page=='main'
+        .wrapper-search
+            form.form-validate.search-form(name="formValidate" is-valide-border="{{formValidate.$invalid}}" novalidate ng-controller="SearchCtrl")
+                div
+                    input(type="text" name="search" placeholder="Найти" ng-model='dataForm.search' autocomplete="off" required)
+                    button.send(ng-click="send(dataForm,formValidate,'index.php/action')")
+        a.logo(href="./" flip3dreverse)
+            img(src="./images/logo.png" width="280" height="44")
+        .wrapper-menus(flip3d)
+            .right-menus
+                ul.lists
+                    li
+                        a(href="./about.html") О проекте
+                    li
+                        a(href="./blog.html") Авторский блог
+                    li
+                        a(href="./cooperation.html") Сотрудничество
+                a.tv(href="./")
+                    span Мы на ТВ
+                p.copyright © 2015 «Sofaexpert»
+                a.instagram(href="https://instagram.com/")
+            nav.nav(ng-controller="NavCrtl as nav" flip3d)
+                div
+                    h1 Услуги
+                    ul
+                        li
+                            a(href="./list-articles.html" ng-mouseenter="nav.servises[0]=true" ng-mouseleave="nav.servises[0]=false")
+                                span Мебельный тур в Китай
+                                .wrapper-img(ng-if="nav.servises[0]")
+                                    img(src="./images/nav/1.jpg")
+                        li
+                            a(href="./list-articles.html" ng-mouseenter="nav.servises[1]=true" ng-mouseleave="nav.servises[1]=false")
+                                span Заказ на Таобао
+                                .wrapper-img(ng-if="nav.servises[1]")
+                                    img(src="./images/nav/3.jpg")
+                        li
+                            a(href="./list-articles.html" ng-mouseenter="nav.servises[2]=true" ng-mouseleave="nav.servises[2]=false")
+                                span Заказ по каталогам
+                                .wrapper-img(ng-if="nav.servises[2]")
+                                    img(src="./images/nav/1.jpg")
+                        li
+                            a(href="./list-articles.html" ng-mouseenter="nav.servises[3]=true" ng-mouseleave="nav.servises[3]=false")
+                                span таможенное оформление
+                                .wrapper-img(ng-if="nav.servises[3]")
+                                    img(src="./images/nav/3.jpg")

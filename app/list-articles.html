@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1500">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Description">
+    <meta name="keywords" content="Keywords">
+    <title>SOFAEXPERT</title>
+    <link href="./styles/application.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+  </head>
+  <body pointer-events-scroll>
+    <div class="wrapper dNtoLoad page">
+      <aside class="aside">
+            <div class="wrapper-search">
+              <form name="formValidate" is-valide-border="{{formValidate.$invalid}}" novalidate ng-controller="SearchCtrl" class="form-validate search-form">
+                <div>
+                  <input type="text" name="search" placeholder="Найти" ng-model="dataForm.search" autocomplete="off" required>
+                  <button ng-click="send(dataForm,formValidate,'index.php/action')" class="send"></button>
+                </div>
+              </form>
+            </div><a href="./" flip3dreverse class="logo"><img src="./images/logo.png" width="280" height="44"></a>
+            <div flip3d class="wrapper-menus">
+              <div class="right-menus">
+                <ul class="lists">
+                  <li><a href="./about.html">О проекте</a></li>
+                  <li><a href="./blog.html">Авторский блог</a></li>
+                  <li><a href="./cooperation.html">Сотрудничество</a></li>
+                </ul><a href="./" class="tv"><span>Мы на ТВ</span></a>
+                <p class="copyright">© 2015 «Sofaexpert»</p><a href="https://instagram.com/" class="instagram"></a>
+              </div>
+              <nav ng-controller="NavCrtl as nav" flip3d class="nav">
+                <div>
+                  <h1>Услуги</h1>
+                  <ul>
+                    <li><a href="./list-articles.html" ng-mouseenter="nav.servises[0]=true" ng-mouseleave="nav.servises[0]=false"><span>Мебельный тур в Китай</span>
+                        <div ng-if="nav.servises[0]" class="wrapper-img"><img src="./images/nav/1.jpg"></div></a></li>
+                    <li><a href="./list-articles.html" ng-mouseenter="nav.servises[1]=true" ng-mouseleave="nav.servises[1]=false"><span>Заказ на Таобао</span>
+                        <div ng-if="nav.servises[1]" class="wrapper-img"><img src="./images/nav/3.jpg"></div></a></li>
+                    <li><a href="./list-articles.html" ng-mouseenter="nav.servises[2]=true" ng-mouseleave="nav.servises[2]=false"><span>Заказ по каталогам</span>
+                        <div ng-if="nav.servises[2]" class="wrapper-img"><img src="./images/nav/1.jpg"></div></a></li>
+                    <li><a href="./list-articles.html" ng-mouseenter="nav.servises[3]=true" ng-mouseleave="nav.servises[3]=false"><span>таможенное оформление</span>
+                        <div ng-if="nav.servises[3]" class="wrapper-img"><img src="./images/nav/3.jpg"></div></a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+      </aside>
+      <main class="main">
+        <header animate-class="zoomInRight" class="header animated opacity0"><a href="./contacts.html" class="to-contacts">Контакты</a>
+          <div class="phone-block"><span class="text"><span>звонок для всех</span><span>регионов БЕСПЛАТНЫЙ</span></span><span class="phone-content"><span>8 (800)</span><span>234-77-88</span></span><a href="tel:+88002347788" class="call-phone"></a></div>
+        </header>
+        <section class="content-block">
+          <header class="header-content">
+            <p class="form-description">Если вы хотите получать получать самую последнюю информацию, а также быть в курсе пополнения ассортимента мебели на нашем сайте, вы можите оформить подписку.</p>
+            <div class="wrapper-subscribe">
+              <form name="formValidate" is-valide-border="{{formValidate.$invalid}}" novalidate ng-controller="SubscribeCtrl" class="form-validate">
+                <div>
+                  <input type="email" name="email" placeholder="ВАШ E-mail" ng-model="dataForm.subscribe" autocomplete="off" required>
+                  <input type="hidden" ng-init="dataFormHidden.task = 'subscribe'">
+                  <button ng-click="send(dataForm,formValidate)" class="send">Оформить подписку</button>
+                </div>
+              </form>
+            </div>
+          </header>
+          <ul class="list-articles">
+            <li><a href="./article.html"><img src="./images/list-articles/1.jpg"></a>
+              <h1 class="title"><a href="./article.html">Особенности оформления  заказов при покупке мебели в Китае</a></h1>
+              <div class="info-block"><span class="views">185</span>
+                <time class="time">27.04.2015</time>
+              </div>
+              <p>Трудно влюбиться в классическую мебель с первого взгляда, потому что в Китае её слишком много и обычно на третий день походов по магазинам она набивает оскомину. Классика, неоклассика, барокко, рококо – всё сливается в пёстрый ряд резных фасадов, но глаз может так и не зацепиться ни за что, пока не встретишь Это! Знакомьтесь, марка «U Home» —  для особо придирчивых знатоков французской и английской классики начала XIX в. (этот материал некоммерческий и публикуется в знак благодарности, за предоставленные моим клиентам большие скидки).деятельности, которая определит его как торговую компанию или производителя. <a href="./article.html" class="more">Читать далее</a></p>
+            </li>
+            <li><a href="./article.html"><img src="./images/list-articles/2.jpg"></a>
+              <h1 class="title"><a href="./article.html">Особенности оформления  заказов при покупке мебели в Китае</a></h1>
+              <div class="info-block"><span class="views">185</span>
+                <time class="time">27.04.2015</time>
+              </div>
+              <p>Трудно влюбиться в классическую мебель с первого взгляда, потому что в Китае её слишком много и обычно на третий день походов по магазинам она набивает оскомину. Классика, неоклассика, барокко, рококо – всё сливается в пёстрый ряд резных фасадов, но глаз может так и не зацепиться ни за что, пока не встретишь Это! Знакомьтесь, марка «U Home» —  для особо придирчивых знатоков французской и английской классики начала XIX в. (этот материал некоммерческий и публикуется в знак благодарности, за предоставленные моим клиентам большие скидки).деятельности, которая определит его как торговую компанию или производителя. <a href="./article.html" class="more">Читать далее</a></p>
+            </li>
+            <li><a href="./article.html"><img src="./images/list-articles/1.jpg"></a>
+              <h1 class="title"><a href="./article.html">Особенности оформления  заказов при покупке мебели в Китае</a></h1>
+              <div class="info-block"><span class="views">185</span>
+                <time class="time">27.04.2015</time>
+              </div>
+              <p>Трудно влюбиться в классическую мебель с первого взгляда, потому что в Китае её слишком много и обычно на третий день походов по магазинам она набивает оскомину. Классика, неоклассика, барокко, рококо – всё сливается в пёстрый ряд резных фасадов, но глаз может так и не зацепиться ни за что, пока не встретишь Это! Знакомьтесь, марка «U Home» —  для особо придирчивых знатоков французской и английской классики начала XIX в. (этот материал некоммерческий и публикуется в знак благодарности, за предоставленные моим клиентам большие скидки).деятельности, которая определит его как торговую компанию или производителя. <a href="./article.html" class="more">Читать далее</a></p>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
+    <div id="container" preloader="[&quot;.wrapper&quot;]" animate-preloader class="svg-container">
+      <div class="progress">
+        <div id="persent-loaded" class="text">0</div>
+        <progress-circle></progress-circle>
+      </div>
+      <svg width="100%" height="100%" viewBox="50 -100 200 400">
+        <defs>
+          <filter id="goo">
+            <fegaussianblur in="SourceGraphic" stddeviation="7" result="blur"></fegaussianblur>
+            <fecolormatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 17 -7" result="cm"></fecolormatrix>
+            <fecomposite in="SourceGraphic" in2="cm"></fecomposite>
+          </filter>
+          <filter id="f2" x="-200%" y="-40%" width="400%" height="200%">
+            <feoffset in="SourceAlpha" dx="9" dy="3">
+              <fegaussianblur result="blurOut" in="offOut" stddeviation="0.51">
+                <fecomponenttransfer>
+                  <fefunca type="linear" slope="0.05"></fefunca>
+                </fecomponenttransfer>
+                <femerge>
+                  <femergenode>
+                    <femergenode in="SourceGraphic"></femergenode>
+                  </femergenode>
+                </femerge>
+              </fegaussianblur>
+            </feoffset>
+          </filter>
+        </defs>
+        <g filter="url(#goo)" style="fill:#FFFFFF">
+          <ellipse id="drop" cx="125" cy="90" rx="20" ry="20" fill-opacity="1" fill="#ddc85b"></ellipse>
+          <ellipse id="drop2" cx="125" cy="90" rx="20" ry="20" fill-opacity="1" fill="#ddc85b"></ellipse>
+        </g>
+      </svg>
+    </div>
+    <div ng-if="formIsValide==true" class="w">
+      <div ng-class="{'load':load==true}" class="wrapper-thank">
+        <div ng-click="hideThank()" rotate class="close"><span></span></div>
+        <div class="wrapper-thank-content"><img src="./images/logo.png" alt="logo"><span>Спасибо за заявку!</span><span>В ближайшее время, наш сотрудник, обязательно с Вами свяжется.</span></div>
+      </div>
+    </div>
+  </body>
+  <script src="./bundle.js"></script>
+  <!--script(src="http://localhost:8080/webpack-dev-server.js")-->
+  <!--script(src="http://localhost:8080/bundle.js")-->
+</html>

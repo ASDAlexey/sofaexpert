@@ -1,0 +1,67 @@
+.wrapper-move-slider
+  position:relative
+  z-index:0
+  top:-6px
+  height:274px
+  overflow hidden
+  .switchers
+    white-space nowrap
+    position:absolute
+    z-index:1
+    left:17px
+    bottom:7px
+    .ua-mobile &
+      bottom:117px
+    > li
+      dibt()
+      margin-left:5px
+      > a
+        dibt()
+        border-radius:50%
+        text-decoration:none
+        width:14px
+        height:14px
+        border:1px solid #000
+        tn(.5s)
+        &.active
+          background-color:#000
+.move-slider
+  position:relative
+  z-index:1
+  border-radius:10px
+  .list-slides
+    white-space nowrap
+    font-size:0
+    > li
+      position:relative
+      z-index:0
+      width:687px
+      dibt()
+      img
+        width:687px
+      .text
+        border-radius:9px 9px 0 0
+        position:absolute
+        z-index:1
+        left:215px
+        bottom:8px
+        background:rgb(163, 150, 83);
+        background:-moz-linear-gradient(top, rgba(163, 150, 83, 1) 0%, rgba(111, 99, 42, 1) 100%);
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(163, 150, 83, 1)), color-stop(100%, rgba(111, 99, 42, 1)));
+        background:-webkit-linear-gradient(top, rgba(163, 150, 83, 1) 0%, rgba(111, 99, 42, 1) 100%);
+        background:-o-linear-gradient(top, rgba(163, 150, 83, 1) 0%, rgba(111, 99, 42, 1) 100%);
+        background:-ms-linear-gradient(top, rgba(163, 150, 83, 1) 0%, rgba(111, 99, 42, 1) 100%);
+        background:linear-gradient(to bottom, rgba(163, 150, 83, 1) 0%, rgba(111, 99, 42, 1) 100%);
+        //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a39653', endColorstr='#6f632a',GradientType=0 );
+        padding:10px 15px 6px 15px
+        span
+          text-align:left
+          display:block
+          color:#fff
+          &:first-child
+            sbi(24px)
+          &:nth-child(2)
+            sli(32px)
+            margin-top:-2px
+
+

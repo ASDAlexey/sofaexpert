@@ -1,0 +1,170 @@
+section.popup-content-wrap.search
+    popup
+    .inner#inner(ng-controller="formValidationCtrl")
+        .block-filters(ng-show="popup=='main'")
+            h1.title Быстрый поиск авто
+            h2 Параметры
+            form.form-validate(name="formValidate" is-valide-border="{{formValidate.$invalid}}" novalidate)
+                div(multi-select input-model="select[0]" button-label="name" item-label="name maker" tick-property="ticked" selection-mode="single" helper-elements="" on-item-click="removePlaceholder(data)" ng-init="setSelect(['BMW','OPEL'],0,'Марка')")
+                div(multi-select input-model="select[1]" button-label="name" item-label="name maker" tick-property="ticked" selection-mode="single" helper-elements="" on-item-click="removePlaceholder(data)" ng-init="setSelect(['model1','model2'],1,'Модель')")
+                div(multi-select input-model="select[2]" button-label="name" item-label="name maker" tick-property="ticked" selection-mode="single" helper-elements="" on-item-click="removePlaceholder(data)" ng-init="setSelect(['price from 1','price from 2'],2,'Цена')")
+                div(multi-select input-model="select[4]" button-label="name" item-label="name maker" tick-property="ticked" selection-mode="single" helper-elements="" on-item-click="removePlaceholder(data)" ng-init="setSelect(['year 1','year 2'],4,'Год выпуска')")
+                div(multi-select input-model="select[5]" button-label="name" item-label="name maker" tick-property="ticked" selection-mode="single" helper-elements="" on-item-click="removePlaceholder(data)" ng-init="setSelect(['100-2999','3000-50000'],5,'Пробег, мили')")
+                .wrapper-send
+                    a(href="./catalog.html") Перейти в каталог
+                    button.send(ng-click="send('',formValidate)")
+                        span Подобрать
+        div.block-result(ng-show="popup=='main'")
+            h3.title-popular(ng-if="!isSearchStart") Популярные товары
+            ul.list-popular(ng-if="!isSearchStart")
+                li
+                    a(ng-href="./news.html")
+                        figure
+                            span
+                            div
+                                img(ng-src="./images/result-search/1.jpg")
+                            div
+                                h3 BMW X5 (2011)
+                                time.time 22.02.2014
+                                figcaption.caption Описание популярного автомобиля
+                                div.price
+                                    span
+                                        span {{9000 | splitSpace}}
+                                        | $
+                li
+                    a(ng-href="./news.html")
+                        figure
+                            span
+                            div
+                                img(ng-src="./images/result-search/1.jpg")
+                            div
+                                h3 BMW X5 (2011)
+                                time.time 22.02.2014
+                                figcaption.caption Описание популярного автомобиля
+                                div.price
+                                    span
+                                        span {{9000 | splitSpace}}
+                                        | $
+                li
+                    a(ng-href="./news.html")
+                        figure
+                            span
+                            div
+                                img(ng-src="./images/result-search/1.jpg")
+                            div
+                                h3 BMW X5 (2011)
+                                time.time 22.02.2014
+                                figcaption.caption Описание популярного автомобиля
+                                div.price
+                                    span
+                                        span {{9000 | splitSpace}}
+                                        | $
+                li
+                    a(ng-href="./news.html")
+                        figure
+                            span
+                            div
+                                img(ng-src="./images/result-search/1.jpg")
+                            div
+                                h3 BMW X5 (2011)
+                                time.time 22.02.2014
+                                figcaption.caption Описание популярного автомобиля
+                                div.price
+                                    span
+                                        span {{9000 | splitSpace}}
+                                        | $
+            ul(count-result)
+                li(ng-repeat="searchItem in resultSearch.slice(paginate.from*paginate.step,paginate.to*paginate.step)")
+                    a(ng-href="{{searchItem.link}}")
+                        figure
+                            span
+                            div
+                                img(ng-src="{{searchItem.src}}")
+                            div
+                                h3 {{searchItem.product_name}}
+                                time.time {{searchItem.date}}
+                                figcaption.caption {{searchItem.description}}
+                                div.price
+                                    span
+                                        span {{searchItem.price | splitSpace}}
+                                        | $
+            ul.paginate(ng-if="resultSearch.length")
+                li(ng-repeat="index in range(1,getCount(resultSearch.length,paginate.step))")
+                    a(ng-class="{'active':$index==numberPage}" ng-click="switchPage($index,paginate)" href="") {{$index+1}}
+            h3.title-popular(ng-if="!resultSearch.length && isSearchStart") По данному запросу товаров не найдено
+        div.wrapper-popup-video(ng-show="popup=='video'")
+            youtube-video(video-url="'https://www.youtube.com/embed/rJ1cYJYZlkA'" player-width="'844px'" player-height="'475px'" player-vars="'controls=0;autoplay=0;showinfo=0;loop=1'")
+        div.wrapper-form-popup(ng-show="popup=='form'")
+            form.form-validate.form__block(name="formValidate" is-valide-border="{{formValidate.$invalid}}" novalidate ng-controller="FormCtrl"
+            ng-init="setCountInputs()")
+                header.header
+                    .description Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
+                    dl.information
+                        dt Наш адрес:
+                        dd Туркменистан, г.Ашхабад, ул. 1995/20
+                        dt Наши телефоны:
+                        dd +9 (93) 678 67 90
+                        dt Skype:
+                        dd hakuda
+                        dt E-mail:
+                        dd hakuda@mail.ru
+                h1.title-form Форма обратной связи
+                div(ng-class="{'focus':widthLine[0]=='100'}" class="name")
+                    input(type="text" name="name" placeholder="Ваше имя" ng-model='dataForm.name' autocomplete="off" required ng-focus="setWidthLine(0,100)"
+                    ng-blur="setWidthLine(0,0)")
+                div(ng-class="{'focus':widthLine[1]=='100'}" class="phone")
+                    input(type="text" name="phone" placeholder="Ваше телефон" ng-model='dataForm.phone' autocomplete="off" required ng-focus="setWidthLine"+
+                    "(1,100)" ng-blur="setWidthLine(1,0)" only-int-numbers)
+                div(ng-class="{'focus':widthLine[2]=='100'}" class="email")
+                    input(type="email" name="email" placeholder="Ваше email" ng-model='dataForm.email' autocomplete="off" required ng-focus="setWidthLine(2,"+
+                    "100)"
+                    ng-blur="setWidthLine(2,0)")
+                div(ng-class="{'focus':widthLine[3]=='100'}" class="msg")
+                    textarea(name="msg" placeholder="Ваше сообщение" ng-model='dataForm.msg' autocomplete="off" required ng-focus="setWidthLine(3,"+
+                    "100)"
+                    ng-blur="setWidthLine(3,0)")
+                p.imp-inf
+                    span Информация о вас ни при каких условиях не будет передана чужим людям
+                .wrapper-send
+                    button.send(ng-click="send(dataForm,formValidate)")
+                        span Отправить письмо
+                    button.clear(ng-click="clear(formValidate)")
+                        span Очистить
+        div.wrapper-form-popup(ng-show="popup=='form-faq'")
+            form.form-validate.form__block(name="formValidate" is-valide-border="{{formValidate.$invalid}}" novalidate ng-controller="FormCtrl"
+            ng-init="setCountInputs()")
+                header.header
+                    .description Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
+                    dl.information
+                        dt Наш адрес:
+                        dd Туркменистан, г.Ашхабад, ул. 1995/20
+                        dt Наши телефоны:
+                        dd +9 (93) 678 67 90
+                        dt Skype:
+                        dd hakuda
+                        dt E-mail:
+                        dd hakuda@mail.ru
+                h1.title-form Форма обратной связи
+                div(ng-class="{'focus':widthLine[0]=='100'}" class="name")
+                    input(type="text" name="name" placeholder="Ваше имя" ng-model='dataForm.name' autocomplete="off" required ng-focus="setWidthLine(0,100)"
+                    ng-blur="setWidthLine(0,0)")
+                div(ng-class="{'focus':widthLine[1]=='100'}" class="phone")
+                    input(type="text" name="phone" placeholder="Ваше телефон" ng-model='dataForm.phone' autocomplete="off" required ng-focus="setWidthLine"+
+                    "(1,100)" ng-blur="setWidthLine(1,0)" only-int-numbers)
+                div(ng-class="{'focus':widthLine[2]=='100'}" class="email")
+                    input(type="email" name="email" placeholder="Ваше email" ng-model='dataForm.email' autocomplete="off" required ng-focus="setWidthLine(2,"+
+                    "100)"
+                    ng-blur="setWidthLine(2,0)")
+                div(ng-class="{'focus':widthLine[3]=='100'}" class="msg")
+                    textarea(name="msg" placeholder="Ваше сообщение" ng-model='dataForm.msg' autocomplete="off" required ng-focus="setWidthLine(3,"+
+                    "100)"
+                    ng-blur="setWidthLine(3,0)")
+                p.imp-inf
+                    span Информация о вас ни при каких условиях не будет передана чужим людям
+                .wrapper-send
+                    button.send(ng-click="send(dataForm,formValidate)")
+                        span Отправить письмо
+                    button.clear(ng-click="clear(formValidate)")
+                        span Очистить
+        a.close-popup(href="" rotate)
+            span

@@ -1,0 +1,21 @@
+div#container.svg-container(animate-preloader)
+    .progress
+        .text(ng-bind-template="{{persentLoaded}}") 0
+        progress-circle
+    svg(width='100%', height='100%' viewBox="50 -100 200 400")
+        defs
+            filter#goo
+                fegaussianblur(in='SourceGraphic', stddeviation='7', result='blur')
+                fecolormatrix(in='blur', mode='matrix', values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 17 -7', result='cm')
+                fecomposite(in='SourceGraphic', in2='cm')
+            filter#f2(x='-200%', y='-40%', width='400%', height='200%')
+                feoffset(in='SourceAlpha', dx='9', dy='3')
+                    fegaussianblur(result='blurOut', in='offOut', stddeviation='0.51')
+                        fecomponenttransfer
+                            fefunca(type='linear', slope='0.05')
+                        femerge
+                            femergenode
+                                femergenode(in='SourceGraphic')
+        g(filter='url(#goo)', style='fill:#FFFFFF')
+            ellipse#drop(cx='125', cy='90', rx='20', ry='20', fill-opacity='1', fill='#ddc85b')
+            ellipse#drop2(cx='125', cy='90', rx='20', ry='20', fill-opacity='1', fill='#ddc85b')

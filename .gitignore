@@ -1,0 +1,4 @@
+*.zip
+*.rar
+/bower_components/
+/node_modules/

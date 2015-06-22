@@ -1,0 +1,73 @@
+dibt()
+  display:inline-block
+  vertical-align:top
+dibm()
+  display:inline-block
+  vertical-align:middle
+dibb()
+  display:inline-block
+  vertical-align:bottom
+after()
+  &:after
+    content:"."
+    clear:both
+    display:block
+    height:0
+    font-size:0
+    visibility:hidden
+tn($time = 0.5s, $property = all)
+  transition:$property $time ease-out
+tm($property)
+  transform:$property
+tt($x = -50%, $y = -50%, $z = 0)
+  transform:translate($x, $y)
+sc($scale)
+  transform:scale($scale)
+tb($color = black, $bor = "", $bs = "")
+  border:$bor solid transparent
+  border-top:$bs solid $color
+aa($zindex = 0)
+  position:absolute
+  z-index:$zindex
+  top:50%
+  left:50%
+  tt(-50%, -50%)
+gradient($colors, $direction = top)
+  background:linear-gradient(to $direction, $colors)
+sprite-hover($sprite, $sprite-hover)
+  sprite($sprite)
+  &:hover
+    sprite($sprite-hover)
+osl($size = 14px, $lh = 1, $fw = 300)
+  font-family:'OpenSansLightRegular', Tahoma, sans-serif
+  line-height:$lh
+  font-size:$size
+osi($size = 14px, $lh = 1, $fw = 400)
+  font-family:'OpenSansItalic', Tahoma, sans-serif
+  line-height:$lh
+  font-size:$size
+osr($size = 14px, $lh = 1, $fw = 400)
+  font-family:'OpenSansRegular', Tahoma, sans-serif
+  line-height:$lh
+  font-size:$size
+jdb($size = 14px, $lh = 1, $fw = 500)
+  font-family:'jurademibold', Tahoma, sans-serif
+  line-height:$lh
+  font-size:$size
+jl($size = 14px, $lh = 1, $fw = 300)
+  font-family:'juralight', Tahoma, sans-serif
+  line-height:$lh
+  font-size:$size
+jm($size = 14px, $lh = 1, $fw = 300)
+  font-family:'juramedium', Tahoma, sans-serif
+  line-height:$lh
+  font-size:$size
+sbi($size = 14px, $lh = 1)
+  font-family:'sansationbold_italic', Tahoma, sans-serif
+  line-height:$lh
+  font-size:$size
+sli($size = 14px, $lh = 1)
+  font-family:'sansation_lightlight_italic', Tahoma, sans-serif
+  line-height:$lh
+  font-size:$size
+  font-style:italic

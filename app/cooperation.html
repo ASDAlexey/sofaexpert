@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1500">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Description">
+    <meta name="keywords" content="Keywords">
+    <title>SOFAEXPERT</title>
+    <link href="./styles/application.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+  </head>
+  <body pointer-events-scroll>
+    <div class="wrapper dNtoLoad page">
+      <aside class="aside">
+            <div class="wrapper-search">
+              <form name="formValidate" is-valide-border="{{formValidate.$invalid}}" novalidate ng-controller="SearchCtrl" class="form-validate search-form">
+                <div>
+                  <input type="text" name="search" placeholder="Найти" ng-model="dataForm.search" autocomplete="off" required>
+                  <button ng-click="send(dataForm,formValidate,'index.php/action')" class="send"></button>
+                </div>
+              </form>
+            </div><a href="./" flip3dreverse class="logo"><img src="./images/logo.png" width="280" height="44"></a>
+            <div flip3d class="wrapper-menus">
+              <div class="right-menus">
+                <ul class="lists">
+                  <li><a href="./about.html">О проекте</a></li>
+                  <li><a href="./blog.html">Авторский блог</a></li>
+                  <li><a href="./cooperation.html">Сотрудничество</a></li>
+                </ul><a href="./" class="tv"><span>Мы на ТВ</span></a>
+                <p class="copyright">© 2015 «Sofaexpert»</p><a href="https://instagram.com/" class="instagram"></a>
+              </div>
+              <nav ng-controller="NavCrtl as nav" flip3d class="nav">
+                <div>
+                  <h1>Услуги</h1>
+                  <ul>
+                    <li><a href="./list-articles.html" ng-mouseenter="nav.servises[0]=true" ng-mouseleave="nav.servises[0]=false"><span>Мебельный тур в Китай</span>
+                        <div ng-if="nav.servises[0]" class="wrapper-img"><img src="./images/nav/1.jpg"></div></a></li>
+                    <li><a href="./list-articles.html" ng-mouseenter="nav.servises[1]=true" ng-mouseleave="nav.servises[1]=false"><span>Заказ на Таобао</span>
+                        <div ng-if="nav.servises[1]" class="wrapper-img"><img src="./images/nav/3.jpg"></div></a></li>
+                    <li><a href="./list-articles.html" ng-mouseenter="nav.servises[2]=true" ng-mouseleave="nav.servises[2]=false"><span>Заказ по каталогам</span>
+                        <div ng-if="nav.servises[2]" class="wrapper-img"><img src="./images/nav/1.jpg"></div></a></li>
+                    <li><a href="./list-articles.html" ng-mouseenter="nav.servises[3]=true" ng-mouseleave="nav.servises[3]=false"><span>таможенное оформление</span>
+                        <div ng-if="nav.servises[3]" class="wrapper-img"><img src="./images/nav/3.jpg"></div></a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+      </aside>
+      <main class="main">
+        <header animate-class="zoomInRight" class="header animated opacity0"><a href="./contacts.html" class="to-contacts">Контакты</a>
+          <div class="phone-block"><span class="text"><span>звонок для всех</span><span>регионов БЕСПЛАТНЫЙ</span></span><span class="phone-content"><span>8 (800)</span><span>234-77-88</span></span><a href="tel:+88002347788" class="call-phone"></a></div>
+        </header>
+        <!-- .pages-small-menu - ставиться только на страницах черного меню, cooperation - только на странице cooperation.html-->
+        <section class="content-block pages-small-menu cooperation">
+          <footer class="footer">
+            <h1>По всем вопросам и предложениям, пожалуйста, пишите на почту</h1><a href="mailto:mail@sk-intercom.ru">mail@sk-intercom.ru</a>
+          </footer>
+          <article class="content">
+            <div ng-controller="TabCtrl as tab" class="tabs-block">
+              <ul class="list-switcher">
+                <li><a href="" ng-class="{'active':tab.currentTab==0}" ng-click="tab.switchTab(0)"><span>Для дизайнеров</span></a></li>
+                <li><a href="" ng-class="{'active':tab.currentTab==1}" ng-click="tab.switchTab(1)"><span>Для туристических компаний</span></a></li>
+                <li><a href="" ng-class="{'active':tab.currentTab==2}" ng-click="tab.switchTab(2)"><span>Для фрилансеров-организаторов мебельных туров</span></a></li>
+              </ul>
+              <div ng-if="tab.currentTab==0" class="tab-container">
+                <div class="animated lightSpeedIn">
+                  <h4>Для дизайнеров</h4>
+                  <ul>
+                    <li>Организуем для Вас и Ваших клиентов мебельный тур в Китай (Пекин, Гуанчжоу, Фошань);</li>
+                    <li>Подбор и полная комплектация мебели абсолютно к любому интерьеру из Вашего проекта;</li>
+                    <li>С радостью откроем Вам мир качественной, эксклюзивной мебели по доступной цене.</li>
+                  </ul>
+                  <h5>Будем рады долгосрочному, плодотворному и интересному сотрудничеству!!!</h5>
+                </div>
+              </div>
+              <div ng-if="tab.currentTab==1" class="tab-container">
+                <div class="animated slideInLeft">
+                  <h4>Для туристических компаний</h4>
+                  <ul>
+                    <li>Организуем для Вас и Ваших клиентов мебельный тур в Китай (Пекин, Гуанчжоу, Фошань);</li>
+                    <li>Подбор и полная комплектация мебели абсолютно к любому интерьеру из Вашего проекта;</li>
+                    <li>С радостью откроем Вам мир качественной, эксклюзивной мебели по доступной цене.</li>
+                  </ul>
+                  <h5>Будем рады долгосрочному, плодотворному и интересному сотрудничеству!!!</h5>
+                </div>
+              </div>
+              <div ng-if="tab.currentTab==2" class="tab-container">
+                <div class="animated slideInRight">
+                  <h4>Для фрилансеров-организаторов мебельных туров</h4>
+                  <ul>
+                    <li>Организуем для Вас и Ваших клиентов мебельный тур в Китай (Пекин, Гуанчжоу, Фошань);</li>
+                    <li>Подбор и полная комплектация мебели абсолютно к любому интерьеру из Вашего проекта;</li>
+                    <li>С радостью откроем Вам мир качественной, эксклюзивной мебели по доступной цене.</li>
+                  </ul>
+                  <h5>Будем рады долгосрочному, плодотворному и интересному сотрудничеству!!!</h5>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <div id="container" preloader="[&quot;.wrapper&quot;]" animate-preloader class="svg-container">
+      <div class="progress">
+        <div id="persent-loaded" class="text">0</div>
+        <progress-circle></progress-circle>
+      </div>
+      <svg width="100%" height="100%" viewBox="50 -100 200 400">
+        <defs>
+          <filter id="goo">
+            <fegaussianblur in="SourceGraphic" stddeviation="7" result="blur"></fegaussianblur>
+            <fecolormatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 17 -7" result="cm"></fecolormatrix>
+            <fecomposite in="SourceGraphic" in2="cm"></fecomposite>
+          </filter>
+          <filter id="f2" x="-200%" y="-40%" width="400%" height="200%">
+            <feoffset in="SourceAlpha" dx="9" dy="3">
+              <fegaussianblur result="blurOut" in="offOut" stddeviation="0.51">
+                <fecomponenttransfer>
+                  <fefunca type="linear" slope="0.05"></fefunca>
+                </fecomponenttransfer>
+                <femerge>
+                  <femergenode>
+                    <femergenode in="SourceGraphic"></femergenode>
+                  </femergenode>
+                </femerge>
+              </fegaussianblur>
+            </feoffset>
+          </filter>
+        </defs>
+        <g filter="url(#goo)" style="fill:#FFFFFF">
+          <ellipse id="drop" cx="125" cy="90" rx="20" ry="20" fill-opacity="1" fill="#ddc85b"></ellipse>
+          <ellipse id="drop2" cx="125" cy="90" rx="20" ry="20" fill-opacity="1" fill="#ddc85b"></ellipse>
+        </g>
+      </svg>
+    </div>
+    <div ng-if="formIsValide==true" class="w">
+      <div ng-class="{'load':load==true}" class="wrapper-thank">
+        <div ng-click="hideThank()" rotate class="close"><span></span></div>
+        <div class="wrapper-thank-content"><img src="./images/logo.png" alt="logo"><span>Спасибо за заявку!</span><span>В ближайшее время, наш сотрудник, обязательно с Вами свяжется.</span></div>
+      </div>
+    </div>
+  </body>
+  <script src="./bundle.js"></script>
+  <!--script(src="http://localhost:8080/webpack-dev-server.js")-->
+  <!--script(src="http://localhost:8080/bundle.js")-->
+</html>

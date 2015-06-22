@@ -1,0 +1,13 @@
+div.wrapper-dragger
+    .dragger-container#dragger-container(dragger)
+        .dragger-time
+    div.serifs
+        span 10 {{itemTime}}
+        span.infinity
+    div.duration
+        span.pe-7s-stopwatch
+        span(ng-if="currentPositionTime.end!=currentPositionTime.x")
+            span {{currentPositionTime.current.time|round2}}
+        span(ng-if="currentPositionTime.end==currentPositionTime.x")
+            span.infinity
+        span {{itemTime}}

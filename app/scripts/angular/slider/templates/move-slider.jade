@@ -1,0 +1,11 @@
+section.wrapper-move-slider(ng-controller="MoveSliderCtrl")
+    .move-slider
+        ul.list-slides
+            li.draggable(ng-repeat="slide in listSlider")
+                img(ng-src="{{slide.src}}")
+                .text
+                    span(ng-bind-template="{{slide.titleTop}}")
+                    span(ng-bind-template="{{slide.titleBottom}}")
+    ul.switchers
+        li(ng-repeat="slide in listSlider")
+            a(href="" ng-class="{'active':currentSlide==$index}" ng-click="toSlide($index)")

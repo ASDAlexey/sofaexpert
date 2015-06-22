@@ -1,0 +1,17 @@
+.overlay.overlay-cornershape(data-path-to='M 0,0 c 0,0 63.5,-16.5 80,0 16.5,16.5 0,60 0,60 L 0,60 Z' ng-controller="YoutubeCtrl")
+    svg(xmlns='http://www.w3.org/2000/svg', width='100%', height='100%', viewBox="0 0 80 60", preserveaspectratio='none')
+        path.overlay-path(d='M 0,0 c 0,0 -16.5,43.5 0,60 16.5,16.5 80,0 80,0 L 0,60 Z' fill="{{fill}}")
+    button.overlay-close(rotate ng-click="pauseVideo(portfolioDetails)")
+        span.back
+    div.inner-popup
+        div
+            .wrapper-portfolio-info
+                h1.title-popup-portfolio(ng-bind-template="{{data.text}}")
+                div
+                    youtube-video(player-width="'100%'" player-height="'476'" video-id="data.video" player-vars="playerVars" player="portfolioDetails")
+                ul.switch-slider
+                    li.prev(ng-if="index>0")
+                        a.pe-7s-angle-left-circle(href="" ng-click="popup.prev('portfolioDetails',data,index)")
+                    li.next(ng-if="index<defaultLenght+currentAdd*3 - 1")
+                        a.pe-7s-angle-right-circle(href="" ng-click="popup.next('portfolioDetails',data,index)")
+                p(ng-bind-template="{{data.fullText}}")

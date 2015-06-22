@@ -1,0 +1,27 @@
+[
+  {
+    "src": "./images/main-slider/1.jpg",
+    "titleTop": "Примеры реальных закупок",
+    "titleBottom": "наших клиентов"
+  },
+  {
+    "src": "./images/main-slider/2.jpg",
+    "titleTop": "Заказ мебели по каталогам,",
+    "titleBottom": "НЕ ВЫЕЗЖАЯ в Китай!"
+  },
+  {
+    "src": "./images/main-slider/3.jpg",
+    "titleTop": "Подбор мебели",
+    "titleBottom": "по Вашему дизайн-проекту"
+  },
+  {
+    "src": "./images/main-slider/4.jpg",
+    "titleTop": "Доставка мебели",
+    "titleBottom": "в любой регион России"
+  },
+  {
+    "src": "./images/main-slider/5.jpg",
+    "titleTop": "Мебель",
+    "titleBottom": "на любой вкус"
+  }
+]

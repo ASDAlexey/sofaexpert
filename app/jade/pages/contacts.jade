@@ -1,0 +1,63 @@
+//- index.jade
+extends ../layout-page.jade
+block aside
+    +aside('main')
+block content
+    // .pages-small-menu - ставиться только на страницах черного меню, cooperation - только на странице cooperation.html
+    section.content-block.pages-small-menu.contacts
+        footer.footer
+            h1 Контакты
+            .contacts-info
+                ul.info
+                    li 690065 Россия, г. Владивосток ул. Крыгина , дом 3, офис 206 (здание отель Гавань)
+                    li
+                        a(href="mailto:mail@sk-intercom.ru ") mail@sk-intercom.ru
+                    li
+                        a(href="skype:sk-intercom?callu ") sk-intercom
+                ul.phones
+                    li
+                        p Единый телефон для всей России:
+                        p.phone 8 (800) 234-77-88
+                        p звонок для всех регионов бесплатный
+                    li
+                        p.phone 8 (423) 201-45-65
+                    li
+                        p.phone 8 (924) 233-98-97
+                    li
+                        p.phone 8 (423) 230-29-59
+        article.content
+            .tabs-block(ng-controller="TabCtrl as tab")
+                ul.list-switcher
+                    li
+                        a(href="" ng-class="{'active':tab.currentTab==0}" ng-click="tab.switchTab(0)")
+                            span Для дизайнеров
+                    li
+                        a(href="" ng-class="{'active':tab.currentTab==1}" ng-click="tab.switchTab(1)")
+                            span Для туристических компаний
+                    li
+                        a(href="" ng-class="{'active':tab.currentTab==2}" ng-click="tab.switchTab(2)")
+                            span Для фрилансеров-организаторов мебельных туров
+                div.tab-container(ng-if="tab.currentTab==0")
+                    div.animated.lightSpeedIn
+                        h4 Для дизайнеров
+                        ul
+                            li Организуем для Вас и Ваших клиентов мебельный тур в Китай (Пекин, Гуанчжоу, Фошань);
+                            li Подбор и полная комплектация мебели абсолютно к любому интерьеру из Вашего проекта;
+                            li С радостью откроем Вам мир качественной, эксклюзивной мебели по доступной цене.
+                        h5 Будем рады долгосрочному, плодотворному и интересному сотрудничеству!!!
+                div.tab-container(ng-if="tab.currentTab==1")
+                    div.animated.slideInLeft
+                        h4 Для туристических компаний
+                        ul
+                            li Организуем для Вас и Ваших клиентов мебельный тур в Китай (Пекин, Гуанчжоу, Фошань);
+                            li Подбор и полная комплектация мебели абсолютно к любому интерьеру из Вашего проекта;
+                            li С радостью откроем Вам мир качественной, эксклюзивной мебели по доступной цене.
+                        h5 Будем рады долгосрочному, плодотворному и интересному сотрудничеству!!!
+                div.tab-container(ng-if="tab.currentTab==2")
+                    div.animated.slideInRight
+                        h4 Для фрилансеров-организаторов мебельных туров
+                        ul
+                            li Организуем для Вас и Ваших клиентов мебельный тур в Китай (Пекин, Гуанчжоу, Фошань);
+                            li Подбор и полная комплектация мебели абсолютно к любому интерьеру из Вашего проекта;
+                            li С радостью откроем Вам мир качественной, эксклюзивной мебели по доступной цене.
+                        h5 Будем рады долгосрочному, плодотворному и интересному сотрудничеству!!!

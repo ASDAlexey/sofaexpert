@@ -1,0 +1,64 @@
+.header
+  after()
+  .to-contacts
+    text-decoration:none
+    float:left
+    margin-left:7px
+    border:2px solid #cab558
+    border-radius:6px 6px 0 0
+    text-transform:uppercase
+    color:#cab558
+    width:173px
+    height:45px
+    text-align:center
+    padding-top:12px
+    tn(.5s)
+    &:hover
+      background-color:#cab558
+      border-color:#cab558
+      color:#f8f5e9
+  .phone-block
+    padding-right:10px
+    float:right
+    .text
+      padding-top:6px
+      dibt()
+      span
+        text-align:right
+        display:block
+        color:#7a786d
+        osl(12px,1.4)
+    .phone-content
+      padding:7px 13px 0
+      dibt()
+      span
+        jdb(30px)
+        dibt()
+        color:#21201c
+        &:first-child
+          color:#a39653
+  .call-phone
+    dibt()
+    text-decoration:none
+    height:45px
+    width:30px
+    border:2px solid #cab558
+    border-radius:6px 6px 0 0
+    color:#cab558
+    padding-top:14px
+    position:relative
+    z-index:0
+    tn(.5s)
+    &:hover
+      background-color:#cab558
+      border-color:#cab558
+      color:#f8f5e9
+      &:after
+        sprite($phone_h)
+    &:after
+      content:''
+      position:absolute
+      z-index:1
+      sprite($phone)
+      margin-left:1px
+      aa(1)

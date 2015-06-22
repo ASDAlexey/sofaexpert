@@ -1,0 +1,196 @@
+.content-main
+  width:calc(100% + 20px)
+  overflow-x:hidden
+  overflow-y:auto
+  max-height:298px
+  padding:30px 0 0 222px
+  position:relative
+  z-index:0
+  top:-6px
+  border-radius:0 9px 9px 9px
+  background:rgb(247, 226, 150);
+  background:-moz-linear-gradient(left, rgba(247, 226, 150, 1) 0%, rgba(254, 235, 163, 1) 0%, rgba(217, 195, 102, 1) 100%);
+  background:-webkit-gradient(linear, left top, right top, color-stop(0%, rgba(247, 226, 150, 1)), color-stop(0%, rgba(254, 235, 163, 1)), color-stop(100%, rgba(217, 195, 102, 1)));
+  background:-webkit-linear-gradient(left, rgba(247, 226, 150, 1) 0%, rgba(254, 235, 163, 1) 0%, rgba(217, 195, 102, 1) 100%);
+  background:-o-linear-gradient(left, rgba(247, 226, 150, 1) 0%, rgba(254, 235, 163, 1) 0%, rgba(217, 195, 102, 1) 100%);
+  background:-ms-linear-gradient(left, rgba(247, 226, 150, 1) 0%, rgba(254, 235, 163, 1) 0%, rgba(217, 195, 102, 1) 100%);
+  background:linear-gradient(to right, rgba(247, 226, 150, 1) 0%, rgba(254, 235, 163, 1) 0%, rgba(217, 195, 102, 1) 100%);
+  //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7e296', endColorstr='#d9c366',GradientType=1 );
+  padding-bottom:30px
+  .list-main-contant
+    padding-right:34px
+    margin-bottom:10px
+  .title
+    color:#887f5c
+    jl(18px)
+  .list-main-contant
+    > li
+      margin-top:15px
+      position:relative
+      z-index:0
+      &:after
+        content:''
+        position:absolute
+        z-index:1
+        sprite($check)
+        osl(14px)
+        top:50%;
+        left:-26px;
+        tt(0, -50%)
+.header ~ *
+  position:relative
+  z-index:0
+  top:-6px
+.content-block
+  height:calc(100% - 45px)
+  background-color:#fff
+  border-radius:10px
+  padding:23px 0 23px 23px
+  .form-description
+    sbi(14px, 1.4)
+    color:#000
+  .header-content
+    height:133px
+    padding-right:23px
+    position:relative
+    z-index:0
+    padding-bottom:26px
+    &:after
+      left:0
+      bottom:20px
+      content:''
+      position:absolute
+      z-index:1
+      width:calc(100% - 27px)
+      background-repeat:repeat-x
+      height:2px
+      background-image:url(../images/bg/bg-list.png)
+.copyright
+  color:#fff
+  margin-right:9px
+  font:11px Tahoma, sans-serif
+  dibt()
+  margin-top:8px
+.switch-article
+  margin-top:34px
+  after()
+  > li
+    &:first-child
+      float:left
+    &:nth-child(2)
+      float:right
+    a
+      text-decoration:none
+      color:#cab558
+      border-bottom:1px solid #cab558
+.pages-small-menu
+  padding-left:0
+  .content
+    max-height:calc(100%)
+    padding-left:0
+    ul
+      margin-left:0
+      border-radius:0 9px 9px 0
+      position:relative
+      z-index:0
+      padding-top:1px
+      padding-right:10px
+      background-color:#efe9cd
+      li
+        margin-left:29px
+        color:#000
+        padding-left:30px
+        position:relative
+        z-index:0
+        margin-top:28px
+        &:first-child
+          margin-top:22px
+        &:last-child
+          padding-bottom:21px
+        &:after
+          content:''
+          position:absolute
+          z-index:1
+          sprite($list_icon)
+          left:0
+          top:-2px
+    > *
+      margin-left:23px
+.content
+  padding-bottom:25px
+  padding-right:23px
+  max-height:calc(100% - 133px);
+  overflow-x hidden
+  overflow-y:auto;
+  width:100%;
+  h1
+    margin:38px 0 21px
+    color:#000
+    jl(25px)
+    padding-bottom:3px
+    border-bottom:1px solid #cab558
+  h2
+    jl(24px)
+    color:#000
+    margin:21px 0 14px
+  h3
+    jdb(24px)
+    color:#cab558
+    margin:39px 0 55px
+  h4
+    position:relative
+    z-index:0
+    jdb(30px)
+    text-transform:uppercase
+    color:#000
+    border-bottom:1px solid #cab558
+    margin-bottom:28px
+    &:after
+      content:''
+      position:absolute
+      z-index:1
+  h5
+    text-align:center
+    color:#cab558
+    jdb(24px)
+    text-transform:uppercase
+    margin-top:60px
+  > img
+    width:100%
+  > p
+    margin-bottom:25px
+    color:#000
+    osr(14px, 1.3)
+  .title
+    margin-top:20px
+    jdb(20px)
+    a
+      text-decoration:none
+      color:#000
+      tn(.5s)
+      &:hover
+        color:#cab558
+  .info-block
+    border-top:1px solid #cab558
+    margin:14px 0
+    after()
+    padding-top:10px
+    > *
+      color:#9c8f4d
+      jdb()
+    .views
+      padding-left:25px
+      float:left
+      position:relative
+      z-index:0
+      &:after
+        content:''
+        position:absolute
+        z-index:1
+        sprite($views)
+        left:0
+        top:1px
+    .time
+      float:right
+
+
