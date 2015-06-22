@@ -1,3 +1,5 @@
+/.idea/
+/.git/
 *.zip
 *.rar
 /bower_components/
