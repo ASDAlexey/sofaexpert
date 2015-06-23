@@ -69,13 +69,13 @@ module.exports={
         //})
 
         new webpack.HotModuleReplacementPlugin(),
-        //new ngminPlugin(),
-        //new webpack.optimize.DedupePlugin(),
-        //new webpack.optimize.UglifyJsPlugin({
-        //    compress:{
-        //        warnings:false
-        //    },
-        //    minimize:true
-        //})
+        new ngminPlugin(),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress:{
+                warnings:false
+            },
+            minimize:true
+        })
     ]
 };

@@ -205,3 +205,72 @@ module.exports = (angular)->
         else
           $scope.form_set_dirty(formValidate)
   ]
+  controller.controller "ContactsCtrl",[
+    '$scope'
+    "$http"
+    "$q"
+    "$rootScope"
+    "$timeout"
+    ($scope,$http,$q,$rootScope,$timeout) ->
+      #custom select
+      $scope.setCountSelects = ()->
+        $scope.zIndex = new Array(2)
+        $scope.zIndex = _.fill($scope.zIndex,false)
+      $scope.fOpen = (number)->
+        $scope.zIndex[number] = true
+      $scope.fClose = (number)->
+        $scope.zIndex[number] = false
+      $scope.selects = {}
+      $scope.setSelect = (selectObj)->
+        $scope.selects[selectObj.name] = []
+        $scope.selects[selectObj.name].push {
+          name : selectObj.placeholder.text
+          value : selectObj.placeholder.value
+          maker : ""
+          ticked : true
+        }
+        angular.forEach selectObj.options,(value,key)->
+          unless selectObj.placeholder.text is value.text
+            $scope.selects[selectObj.name].push {
+              name : value.text
+              value : value.value
+              maker : ""
+              ticked : false
+            }
+      #validation form
+      $rootScope.formIsValide = false
+      $scope.form_set_pristine = (form) ->
+        if form.$setPristine
+          form.$setPristine()
+      $scope.form_set_dirty = (form) ->
+        if form.$setDirty
+          form.$setDirty()
+          angular.forEach form,(input,key) ->
+            if typeof input is 'object' and input.$name isnt `undefined`
+              form[input.$name].$setViewValue (if form[input.$name].$viewValue isnt `undefined` then form[input.$name].$viewValue else "")
+      $scope.send = (dataForm,formValidate)=>
+        if formValidate.$valid
+          $scope.resultSelects = []
+          angular.forEach $scope.selects,(value,key)->
+            if _.findWhere(value,{'ticked' : true}).value
+              $scope.resultSelects.push {
+                "name" : key
+                "value" : _.result(_.findWhere(value,{'ticked' : true}),'value')
+              }
+          dataForm = angular.extend(dataForm,{selects : $scope.resultSelects})
+          dataForm.task = "filter"
+          $scope.form_set_pristine(formValidate)
+          $http(
+            url : "./controller.php"
+            method : "POST"
+            data : dataForm
+          ).then((response)->
+            $scope.products = response.data
+          )
+        else
+          $scope.form_set_dirty(formValidate)
+      $scope.clear = (formValidate)=>
+        $scope.form_set_pristine(formValidate)
+      $rootScope.hideThank = ()->
+        $rootScope.formIsValide = false
+  ]

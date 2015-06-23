@@ -33,7 +33,7 @@
           left:-35px
   .tabs-block
     .tab-container
-      >ul
+      > ul
         margin-left:-23px
     .list-switcher
       padding-right:0
@@ -88,7 +88,7 @@
             background-color:#fff
             &:after
               opacity:1
-          span
+          > span
             padding:0 10px
             dibt()
             position:absolute
@@ -96,3 +96,31 @@
             top:50%
             tt(0, -50%)
             left:0
+.contacts
+  height:100%
+  overflow auto
+  &.pages-small-menu .tabs-block
+    .list-switcher
+      border:none
+      &:after
+        content:''
+        position:absolute
+        z-index:-1
+        background-color:#cab558
+        width:98%
+        height:1px
+        left:0
+        bottom:-1px
+      > li
+        width:32%
+        > a
+          height:111px
+          text-align:center
+          span
+            jdb(22px)
+            width:100%
+            > span:first-child
+              display:block
+              jdb(30px)
+              color:#cab558
+              text-transform:uppercase

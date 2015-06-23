@@ -9,6 +9,8 @@ module.exports = (angular)->
   app = angular.module("App",[
     'ngAnimate'
     'App.animate'
+    'multi-select'
+    'ui.mask'
     'App.form'
     'App.tabs'
     'App.slider'

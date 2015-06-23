@@ -11,9 +11,11 @@
     margin:0 23px 23px
     after()
     .info
+      background:none
       float:left
       width:315px
       > li
+        padding-left:0
         margin-left:33px
         position:relative
         z-index:0
@@ -43,10 +45,15 @@
           &:after
             sprite($skype)
     .phones
+      background:none
       float:right
       width:275px
       margin-right:10px
       > li
+        padding-left:0
+        margin-top:0
+        &:after
+          display:none !important
         &:first-child
           position:relative
           z-index:0
@@ -66,3 +73,34 @@
           &.phone
             osr(24px)
             margin-top:5px
+.contact-form
+  padding-bottom:100px
+  after()
+  min-height 264px
+  background-position:right top
+  background-repeat:no-repeat
+  .form-validate
+    float:left
+    width:352px
+    > div
+      margin-top:17px
+      &.wrapper-send
+        position:absolute
+        z-index:1
+        top:186px;
+        right:58px
+        .send
+          sprite($buttton_send)
+          color:#fff
+          text-transform:uppercase
+          text-align:center
+          jdb(20px)
+          padding-top:4px
+      &:first-child
+        margin-top:0
+      input
+        padding-left:23px
+        width:100%
+        display:block
+        color:#000
+        osr(14px,20px)

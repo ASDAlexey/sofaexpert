@@ -53,8 +53,8 @@
         </header>
         <!-- .pages-small-menu - ставиться только на страницах черного меню, cooperation - только на странице cooperation.html-->
         <section class="content-block pages-small-menu contacts">
-          <footer class="footer">
-            <h1>Контакты git</h1>
+          <article class="content">
+            <h1>Контакты</h1>
             <div class="contacts-info">
               <ul class="info">
                 <li>690065 Россия, г. Владивосток ул. Крыгина , дом 3, офис 206 (здание отель Гавань)</li>
@@ -78,45 +78,127 @@
                 </li>
               </ul>
             </div>
-          </footer>
-          <article class="content">
             <div ng-controller="TabCtrl as tab" class="tabs-block">
               <ul class="list-switcher">
-                <li><a href="" ng-class="{'active':tab.currentTab==0}" ng-click="tab.switchTab(0)"><span>Для дизайнеров</span></a></li>
-                <li><a href="" ng-class="{'active':tab.currentTab==1}" ng-click="tab.switchTab(1)"><span>Для туристических компаний</span></a></li>
-                <li><a href="" ng-class="{'active':tab.currentTab==2}" ng-click="tab.switchTab(2)"><span>Для фрилансеров-организаторов мебельных туров</span></a></li>
+                <li><a href="" ng-class="{'active':tab.currentTab==0}" ng-click="tab.switchTab(0)"><span> <span>Заказать</span>мебельный тур в Китай</span></a></li>
+                <li><a href="" ng-class="{'active':tab.currentTab==1}" ng-click="tab.switchTab(1)"><span><span>Оформить заявку</span> на доставку</span></a></li>
+                <li><a href="" ng-class="{'active':tab.currentTab==2}" ng-click="tab.switchTab(2)"><span><span>Заказать</span>мебель на Taobao Alibaba TMall</span></a></li>
               </ul>
               <div ng-if="tab.currentTab==0" class="tab-container">
                 <div class="animated lightSpeedIn">
-                  <h4>Для дизайнеров</h4>
-                  <ul>
-                    <li>Организуем для Вас и Ваших клиентов мебельный тур в Китай (Пекин, Гуанчжоу, Фошань);</li>
-                    <li>Подбор и полная комплектация мебели абсолютно к любому интерьеру из Вашего проекта;</li>
-                    <li>С радостью откроем Вам мир качественной, эксклюзивной мебели по доступной цене.</li>
-                  </ul>
-                  <h5>Будем рады долгосрочному, плодотворному и интересному сотрудничеству!!!</h5>
+                  <div style="background-image:url('./images/contacts/1.jpg')" class="contact-form">
+                    <form name="formValidate" is-valide-border="{{formValidate.$invalid}}" novalidate ng-controller="ContactsCtrl" ng-init="setCountSelects(2)" class="form-validate">
+                      <div>
+                        <input type="text" name="fio" placeholder="ФИО" ng-model="dataForm.fio" autocomplete="off" required>
+                      </div>
+                      <div>
+                        <input type="email" name="email" placeholder="E-mail" ng-model="dataForm.email" autocomplete="off" required>
+                      </div>
+                      <div>
+                        <input type="text" name="phone" ui-mask="+7(999)-999-99-99" ng-model="dataForm.phone" autocomplete="off" required>
+                      </div>
+                      <div ng-class="{'open':zIndex[0]==true}" class="select-block">
+                        <!-- setSelect({name:"name_select"","placeholder":{"value":"", "text":"Город"}})-->
+                        <!-- name_select -любое имя cелекта латиницей-->
+                        <!-- "placeholder" - информация в выбранныя в селекте при загрузке, если value ="", то выводиться текст, иначе нужно в placehoder-->
+                        <!--  вставить объект который будет выбран при загрузке страницы, например "placeholder":{"value":"1", "text":"Москва"}-->
+                        <!-- "options" - перечисляем коллекция всех options ceлекта-->
+                        <!-- name в setSelect должен совпадать с input-model="selects['select0']"-->
+                        <div multi-select ng-init="setSelect({&quot;name&quot;:&quot;select0&quot;,&quot;placeholder&quot;:{&quot;value&quot;:&quot;&quot;, &quot;text&quot;:&quot;Город&quot;},&quot;options&quot;:[{&quot;value&quot;:&quot;1&quot;,&quot;text&quot;:&quot;Москва&quot;,&quot;src&quot;:&quot;&quot;},{&quot;value&quot;:&quot;2&quot;,&quot;text&quot;:&quot;Санкт-Петербург&quot;,&quot;src&quot;:&quot;&quot;}]})" on-open="fOpen(0)" on-close="fClose(0)" input-model="selects['select0']" button-label="name" item-label="name maker" tick-property="ticked" selection-mode="single" helper-elements=""></div>
+                      </div>
+                      <div>
+                        <input type="text" name="arrival_date" placeholder="Дата прибывания" ng-model="dataForm.arrival_date" autocomplete="off" required>
+                      </div>
+                      <div>
+                        <input type="text" name="remark" placeholder="Примечание" ng-model="dataForm.remark" autocomplete="off" required>
+                      </div>
+                      <div ng-class="{'open':zIndex[1]==true}" class="select-block">
+                        <div multi-select ng-init="setSelect({&quot;name&quot;:&quot;select1&quot;,&quot;placeholder&quot;:{&quot;value&quot;:&quot;&quot;, &quot;text&quot;:&quot;Мебель&quot;},&quot;options&quot;:[{&quot;value&quot;:&quot;1&quot;,&quot;text&quot;:&quot;Диван&quot;,&quot;src&quot;:&quot;&quot;},{&quot;value&quot;:&quot;2&quot;,&quot;text&quot;:&quot;Диван 2&quot;,&quot;src&quot;:&quot;&quot;}]})" on-open="fOpen(1)" on-close="fClose(1)" input-model="selects['select1']" button-label="name" item-label="name maker" tick-property="ticked" selection-mode="single" helper-elements=""></div>
+                      </div>
+                      <input type="hidden" ng-init="dataFormHidden.task = 'contacts'">
+                      <div class="wrapper-send">
+                        <button ng-click="send(dataForm,formValidate)" class="send">Отправить</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
               <div ng-if="tab.currentTab==1" class="tab-container">
                 <div class="animated slideInLeft">
-                  <h4>Для туристических компаний</h4>
-                  <ul>
-                    <li>Организуем для Вас и Ваших клиентов мебельный тур в Китай (Пекин, Гуанчжоу, Фошань);</li>
-                    <li>Подбор и полная комплектация мебели абсолютно к любому интерьеру из Вашего проекта;</li>
-                    <li>С радостью откроем Вам мир качественной, эксклюзивной мебели по доступной цене.</li>
-                  </ul>
-                  <h5>Будем рады долгосрочному, плодотворному и интересному сотрудничеству!!!</h5>
+                  <div style="background-image:url('./images/contacts/1.jpg')" class="contact-form">
+                    <form name="formValidate" is-valide-border="{{formValidate.$invalid}}" novalidate ng-controller="ContactsCtrl" ng-init="setCountSelects(2)" class="form-validate">
+                      <div>
+                        <input type="text" name="fio" placeholder="ФИО" ng-model="dataForm.fio" autocomplete="off" required>
+                      </div>
+                      <div>
+                        <input type="email" name="email" placeholder="E-mail" ng-model="dataForm.email" autocomplete="off" required>
+                      </div>
+                      <div>
+                        <input type="text" name="phone" ui-mask="+7(999)-999-99-99" ng-model="dataForm.phone" autocomplete="off" required>
+                      </div>
+                      <div ng-class="{'open':zIndex[0]==true}" class="select-block">
+                        <!-- setSelect({name:"name_select"","placeholder":{"value":"", "text":"Город"}})-->
+                        <!-- name_select -любое имя cелекта латиницей-->
+                        <!-- "placeholder" - информация в выбранныя в селекте при загрузке, если value ="", то выводиться текст, иначе нужно в placehoder-->
+                        <!--  вставить объект который будет выбран при загрузке страницы, например "placeholder":{"value":"1", "text":"Москва"}-->
+                        <!-- "options" - перечисляем коллекция всех options ceлекта-->
+                        <!-- name в setSelect должен совпадать с input-model="selects['select0']"-->
+                        <div multi-select ng-init="setSelect({&quot;name&quot;:&quot;select0&quot;,&quot;placeholder&quot;:{&quot;value&quot;:&quot;&quot;, &quot;text&quot;:&quot;Город&quot;},&quot;options&quot;:[{&quot;value&quot;:&quot;1&quot;,&quot;text&quot;:&quot;Москва&quot;,&quot;src&quot;:&quot;&quot;},{&quot;value&quot;:&quot;2&quot;,&quot;text&quot;:&quot;Санкт-Петербург&quot;,&quot;src&quot;:&quot;&quot;}]})" on-open="fOpen(0)" on-close="fClose(0)" input-model="selects['select0']" button-label="name" item-label="name maker" tick-property="ticked" selection-mode="single" helper-elements=""></div>
+                      </div>
+                      <div>
+                        <input type="text" name="arrival_date" placeholder="Дата прибывания" ng-model="dataForm.arrival_date" autocomplete="off" required>
+                      </div>
+                      <div>
+                        <input type="text" name="remark" placeholder="Примечание" ng-model="dataForm.remark" autocomplete="off" required>
+                      </div>
+                      <div ng-class="{'open':zIndex[1]==true}" class="select-block">
+                        <div multi-select ng-init="setSelect({&quot;name&quot;:&quot;select1&quot;,&quot;placeholder&quot;:{&quot;value&quot;:&quot;&quot;, &quot;text&quot;:&quot;Мебель&quot;},&quot;options&quot;:[{&quot;value&quot;:&quot;1&quot;,&quot;text&quot;:&quot;Диван&quot;,&quot;src&quot;:&quot;&quot;},{&quot;value&quot;:&quot;2&quot;,&quot;text&quot;:&quot;Диван 2&quot;,&quot;src&quot;:&quot;&quot;}]})" on-open="fOpen(1)" on-close="fClose(1)" input-model="selects['select1']" button-label="name" item-label="name maker" tick-property="ticked" selection-mode="single" helper-elements=""></div>
+                      </div>
+                      <input type="hidden" ng-init="dataFormHidden.task = 'contacts'">
+                      <div class="wrapper-send">
+                        <button ng-click="send(dataForm,formValidate)" class="send">Отправить</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
               <div ng-if="tab.currentTab==2" class="tab-container">
                 <div class="animated slideInRight">
-                  <h4>Для фрилансеров-организаторов мебельных туров</h4>
-                  <ul>
-                    <li>Организуем для Вас и Ваших клиентов мебельный тур в Китай (Пекин, Гуанчжоу, Фошань);</li>
-                    <li>Подбор и полная комплектация мебели абсолютно к любому интерьеру из Вашего проекта;</li>
-                    <li>С радостью откроем Вам мир качественной, эксклюзивной мебели по доступной цене.</li>
-                  </ul>
-                  <h5>Будем рады долгосрочному, плодотворному и интересному сотрудничеству!!!</h5>
+                  <div style="background-image:url('./images/contacts/1.jpg')" class="contact-form">
+                    <form name="formValidate" is-valide-border="{{formValidate.$invalid}}" novalidate ng-controller="ContactsCtrl" ng-init="setCountSelects(2)" class="form-validate">
+                      <div>
+                        <input type="text" name="fio" placeholder="ФИО" ng-model="dataForm.fio" autocomplete="off" required>
+                      </div>
+                      <div>
+                        <input type="email" name="email" placeholder="E-mail" ng-model="dataForm.email" autocomplete="off" required>
+                      </div>
+                      <div>
+                        <input type="text" name="phone" ui-mask="+7(999)-999-99-99" ng-model="dataForm.phone" autocomplete="off" required>
+                      </div>
+                      <div ng-class="{'open':zIndex[0]==true}" class="select-block">
+                        <!-- setSelect({name:"name_select"","placeholder":{"value":"", "text":"Город"}})-->
+                        <!-- name_select -любое имя cелекта латиницей-->
+                        <!-- "placeholder" - информация в выбранныя в селекте при загрузке, если value ="", то выводиться текст, иначе нужно в placehoder-->
+                        <!--  вставить объект который будет выбран при загрузке страницы, например "placeholder":{"value":"1", "text":"Москва"}-->
+                        <!-- "options" - перечисляем коллекция всех options ceлекта-->
+                        <!-- name в setSelect должен совпадать с input-model="selects['select0']"-->
+                        <div multi-select ng-init="setSelect({&quot;name&quot;:&quot;select0&quot;,&quot;placeholder&quot;:{&quot;value&quot;:&quot;&quot;, &quot;text&quot;:&quot;Город&quot;},&quot;options&quot;:[{&quot;value&quot;:&quot;1&quot;,&quot;text&quot;:&quot;Москва&quot;,&quot;src&quot;:&quot;&quot;},{&quot;value&quot;:&quot;2&quot;,&quot;text&quot;:&quot;Санкт-Петербург&quot;,&quot;src&quot;:&quot;&quot;}]})" on-open="fOpen(0)" on-close="fClose(0)" input-model="selects['select0']" button-label="name" item-label="name maker" tick-property="ticked" selection-mode="single" helper-elements=""></div>
+                      </div>
+                      <div>
+                        <input type="text" name="arrival_date" placeholder="Дата прибывания" ng-model="dataForm.arrival_date" autocomplete="off" required>
+                      </div>
+                      <div>
+                        <input type="text" name="remark" placeholder="Примечание" ng-model="dataForm.remark" autocomplete="off" required>
+                      </div>
+                      <div ng-class="{'open':zIndex[1]==true}" class="select-block">
+                        <div multi-select ng-init="setSelect({&quot;name&quot;:&quot;select1&quot;,&quot;placeholder&quot;:{&quot;value&quot;:&quot;&quot;, &quot;text&quot;:&quot;Мебель&quot;},&quot;options&quot;:[{&quot;value&quot;:&quot;1&quot;,&quot;text&quot;:&quot;Диван&quot;,&quot;src&quot;:&quot;&quot;},{&quot;value&quot;:&quot;2&quot;,&quot;text&quot;:&quot;Диван 2&quot;,&quot;src&quot;:&quot;&quot;}]})" on-open="fOpen(1)" on-close="fClose(1)" input-model="selects['select1']" button-label="name" item-label="name maker" tick-property="ticked" selection-mode="single" helper-elements=""></div>
+                      </div>
+                      <input type="hidden" ng-init="dataFormHidden.task = 'contacts'">
+                      <div class="wrapper-send">
+                        <button ng-click="send(dataForm,formValidate)" class="send">Отправить</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
